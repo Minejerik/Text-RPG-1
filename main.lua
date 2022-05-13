@@ -8,6 +8,7 @@ local food=10
 local name
 local drip=1
 local car=false
+local motorcycle=false
 
 io.write("Are you ready to start the game?(y/n)\n")
 input = io.read() 
@@ -70,7 +71,7 @@ print("Food Owned =",(food))
 print("Money =",(money))
 end
 
-
+--car stuff
 if input=="buy_car" then
   if money>250 and car==false then
 	car=true
@@ -86,7 +87,22 @@ if input=="buy_car" then
         end
 end
 end
-
+--motorcycle stuff
+if input=="buy_motorcycle" then
+  if money>250 and motorcycle==false then
+	motorcycle=true
+  money=money-250
+  drip=drip+250
+  print("Motorcycle Now Owned")
+        else
+        if money<250 then
+	      print( 250-money,"More Money Required!")
+        end
+        if motorcycle==true then
+	      print("You already own a motorcycle!")
+        end
+end
+end
 
 
 
