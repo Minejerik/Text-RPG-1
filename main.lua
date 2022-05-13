@@ -19,8 +19,8 @@ print("Hello",name,"!")
 
 
 function main_loop()
-  if drip<1000 then
-  if health>0 then
+  if drip<=1000 then
+  if health>=0 then
 io.write("What would you like to do?\n")
 input = io.read()
 
