@@ -7,7 +7,7 @@ local strength=25
 local food=10
 local name
 local drip=1
-local car=0
+local car=false
 
 io.write("Are you ready to start the game?(y/n)\n")
 input = io.read() 
@@ -61,27 +61,33 @@ if input== "train" then
   print("Strength =",(strength))
 end
 
-if input== "buy_car" then
-if car==0 then
-if money>250 then
-money=money-250
-print("Car Bought") 
-car=1
-drip=drip+250
-else
-print((250-money),"Dollars Needed!")  
-end
-end
-else
-print("You Already Own a Car")
-end
-      
+
+
 if input=="buy_food" then
 food=food+1
 money=money-5
 print("Food Owned =",(food))
 print("Money =",(money))
 end
+
+
+if input=="buy_car" then
+  if money>250 and car==false then
+	car=true
+  money=money-250
+  drip=drip+250
+  print("Car Now Owned")
+        else
+        if money<250 then
+	      print( 250-money,"More Money Required!")
+        end
+        if car==true then
+	      print("You already own a car!")
+        end
+end
+end
+
+
 
 
 
