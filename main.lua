@@ -8,6 +8,7 @@ local food=10
 local name
 local drip=0
 
+
 io.write("Are you ready to start the game?(y/n)\n")
 input = io.read() 
 if input == y or input == yes then
@@ -58,9 +59,16 @@ if input== "train" then
   print("Strength =",(strength))
 end
 
+if input== "buy_car" then
+if money>250 then
+money=money-250
+print("Car Bought")  
+      else
+print((250-money),"Dollars Needed!")  
+ end
+    end
 
-
-if input=="buy food" then
+if input=="buy_food" then
 food=food+1
 money=money-5
 print("Food Owned =",(food))
@@ -74,24 +82,11 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   else
   print("You Lost all of your health")
   os.exit()
   end
-main_loop()  
+    
+main_loop() 
 end
 main_loop()
