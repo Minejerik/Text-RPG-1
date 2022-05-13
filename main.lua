@@ -5,12 +5,16 @@ local health=150
 local loss
 local strength=25
 local food=10
+local name
+local drip=0
 
 io.write("Are you ready to start the game?(y/n)\n")
 input = io.read() 
 if input == y or input == yes then
 end
-
+io.write("What is your name?\n")
+name = io.read() 
+print("Hello",name,"!")
 
 
 function main_loop()
