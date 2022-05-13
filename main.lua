@@ -6,8 +6,8 @@ local loss
 local strength=25
 local food=10
 local name
-local drip=0
-
+local drip=1
+local car=0
 
 io.write("Are you ready to start the game?(y/n)\n")
 input = io.read() 
@@ -19,6 +19,7 @@ print("Hello",name,"!")
 
 
 function main_loop()
+  if drip<1000 then
   if health>0 then
 io.write("What would you like to do?\n")
 input = io.read()
@@ -52,6 +53,7 @@ print("Health=",(health))
 print("Money =",(money))
 print("Strength =",(strength))
 print("Food Left =",(food))  
+print("Your Drippines =",(drip)) 
 end
 
 if input== "train" then
@@ -60,14 +62,20 @@ if input== "train" then
 end
 
 if input== "buy_car" then
+if car==0 then
 if money>250 then
 money=money-250
-print("Car Bought")  
-      else
+print("Car Bought") 
+car=1
+drip=drip+250
+else
 print((250-money),"Dollars Needed!")  
- end
-    end
-
+end
+end
+else
+print("You Already Own a Car")
+end
+      
 if input=="buy_food" then
 food=food+1
 money=money-5
@@ -86,7 +94,10 @@ end
   print("You Lost all of your health")
   os.exit()
   end
-    
+  else
+  print("You got drippy enough! You Win!")
+  os.exit()
+  end
 main_loop() 
 end
 main_loop()
