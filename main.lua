@@ -9,6 +9,7 @@ local name
 local drip=0
 local car=false
 local motorcycle=false
+local clothes=false
 
 io.write("Are you ready to start the game?(y/n)\n")
 input = io.read() 
@@ -104,6 +105,53 @@ if input=="buy_motorcycle" then
 end
 end
 
+--clothes stuff
+if input=="buy_clothes" then
+  if money>=100 and clothes==false then
+	clothes=true
+  money=money-250
+  drip=drip+100
+  print("Clothes Now Owned")
+        else
+        if money<100 then
+	      print( 100-money,"More Money Required!")
+        end
+        if clothes==true then
+	      print("You already own Clothes!")
+        end
+end
+end
+
+--house stuff
+if input=="buy_house" then
+  if money>=400 and house==false then
+	house=true
+  money=money-250
+  drip=drip+400
+  print("House Now Owned")
+        else
+        if money<400 then
+	      print( 100-money,"More Money Required!")
+        end
+        if house==true then
+	      print("You already own a house!")
+        end
+end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
 if input=="help" then
 print("info - Gets your stats")
 print("help - brings this up")
@@ -114,7 +162,9 @@ print("fight - fight someone")
 print("train - train to earn more money per fight")
 print("buy_car - you buy a car $250")
 print("buy_motorcycle - you buy a motorcycle $250")
-print("buy motorcycle/car lets you get drippy enough to win")
+print("buy_clothes - you buy some clothes $100")
+print("buy_house -  you buy a house $400")
+print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
         
 end
 
