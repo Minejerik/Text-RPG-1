@@ -10,7 +10,7 @@ local car=false
 local motorcycle=false
 local clothes=false
 local house=false
-
+local version = 1.0
 
 
 
@@ -160,6 +160,7 @@ print("buy_motorcycle - you buy a motorcycle $250")
 print("buy_clothes - you buy some clothes $100")
 print("buy_house -  you buy a house $400")
 print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
+print("Version =",(version))
         
 end
 
