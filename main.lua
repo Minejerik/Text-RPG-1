@@ -1,6 +1,5 @@
-local money
 local input
-local money=100
+local money=1000
 local health=150
 local loss
 local strength=25
@@ -10,18 +9,17 @@ local drip=0
 local car=false
 local motorcycle=false
 local clothes=false
+local house=false
 
-io.write("Are you ready to start the game?(y/n)\n")
+io.write("Time to play!\n")
 input = io.read() 
-if input == y or input == yes then
-end
 io.write("What is your name?\n")
 name = io.read() 
 print("Hello",name,"!")
 
 
 function main_loop()
-  if drip<=1000 then
+  if drip==1000 then
   if health>=0 then
 io.write("What would you like to do?\n")
 input = io.read()
@@ -103,13 +101,12 @@ if input=="buy_motorcycle" then
 	      print("You already own a motorcycle!")
         end
 end
-end
 
 --clothes stuff
 if input=="buy_clothes" then
   if money>=100 and clothes==false then
 	clothes=true
-  money=money-250
+  money=money-100
   drip=drip+100
   print("Clothes Now Owned")
         else
@@ -120,23 +117,21 @@ if input=="buy_clothes" then
 	      print("You already own Clothes!")
         end
 end
-end
 
 --house stuff
 if input=="buy_house" then
   if money>=400 and house==false then
 	house=true
-  money=money-250
+  money=money-400
   drip=drip+400
   print("House Now Owned")
         else
         if money<400 then
-	      print( 100-money,"More Money Required!")
+	      print( 400-money,"More Money Required!")
         end
         if house==true then
 	      print("You already own a house!")
         end
-end
 end
 
 
@@ -183,10 +178,12 @@ end
   print("You Lost all of your health")
   os.exit()
   end
+          
   else
   print("You got drippy enough! You Win!")
   os.exit()
   end
+
 main_loop() 
 end
 main_loop()
