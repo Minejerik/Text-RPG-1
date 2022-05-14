@@ -73,7 +73,7 @@ end
 
 --car stuff
 if input=="buy_car" then
-  if money>250 and car==false then
+  if money>=250 and car==false then
 	car=true
   money=money-250
   drip=drip+250
@@ -89,7 +89,7 @@ end
 end
 --motorcycle stuff
 if input=="buy_motorcycle" then
-  if money>250 and motorcycle==false then
+  if money>=250 and motorcycle==false then
 	motorcycle=true
   money=money-250
   drip=drip+250
