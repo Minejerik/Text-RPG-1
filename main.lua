@@ -6,7 +6,7 @@ local loss
 local strength=25
 local food=10
 local name
-local drip=1
+local drip=0
 local car=false
 local motorcycle=false
 
@@ -103,6 +103,23 @@ if input=="buy_motorcycle" then
         end
 end
 end
+
+if input=="help" then
+print("info - Gets your stats")
+print("help - brings this up")
+print("work - allows you to work")
+print("buy_food - buy some food")
+print("eat - eat the food")
+print("fight - fight someone")
+print("train - train to earn more money per fight")
+print("buy_car - you buy a car $250")
+print("buy_motorcycle - you buy a motorcycle $250")
+print("buy motorcycle/car lets you get drippy enough to win")
+        
+end
+
+
+
 
 
 
