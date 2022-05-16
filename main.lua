@@ -10,7 +10,7 @@ local car=false
 local motorcycle=false
 local clothes=false
 local house=false
-local version = b1.2
+local version = beta 1.2
 local energy = 10
 
 
