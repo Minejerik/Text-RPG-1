@@ -14,7 +14,7 @@ Car=false
 Motorcycle=false
 Clothes=false
 House=false
-Version = "beta 1.5"
+Version = "1.5"
 Energy = 10
 local chance
 Promotion = 1
