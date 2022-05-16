@@ -19,7 +19,6 @@ Energy = 10
 local chance
 Promotion = 1
 
-
 io.write("Time to play!\n")
 io.write("What is your name?\n")
 name = io.read() 
@@ -127,12 +126,8 @@ if input == "theodore_roosevelt" then
 	Money=99999999999999
   Energy=999999999999999
   Food=9999999999999999
+    print("obansa")
 end
-
-
-
-
-  
 
 if input=="help" then
 cmd.help()
