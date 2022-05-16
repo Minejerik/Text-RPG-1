@@ -12,6 +12,19 @@ local clothes=false
 local house=false
 local version = "beta 1.3"
 local energy = 5
+Mytable = {}
+local chance
+local promotion = 1
+
+	Mytable[1] = 5
+  Mytable[2] = 10
+  Mytable[3] = 15
+  Mytable[4] = 20
+  Mytable[5] = 25
+  Mytable[6] = 30
+
+
+
 
 
 io.write("Time to play!\n")
@@ -19,14 +32,13 @@ io.write("What is your name?\n")
 name = io.read() 
 print("Hello",(name),"!")
 
-
 function main_loop()
 io.write("What would you like to do?\n")
 input = io.read()
 
 if input == "work" then
   if energy > 0 then
-	money=money+25
+	money=money+Mytable[promotion]
   energy=energy-1
   print("Money =", (money))
   print("Energy Left =", (energy))
@@ -73,7 +85,31 @@ if input== "train" then
   print("Strength =",(strength))
 end
 
+if input == "ask_for_promotion" then
+if energy <= 10 then
+energy = energy-10
+chance = math.random(0,1)
+if chance == 1 then
+	print("You Got Promoted!")
+  promotion = promotion+1
+end
+if chance == 0 then
+	print("You Did Not Get Promoted! :(")
+end
+else
+print("More Energy Required!")
+end
+end
 
+
+
+
+
+
+
+
+
+  
 
 if input=="buy_food" then
 if money>=10 then
