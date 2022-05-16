@@ -44,7 +44,7 @@ if input == "eat" then
   print("Food Left =",(food))  
   print("Energy =", (energy))
   else
-  print("You are out of food buy some!")
+    print("You are out of food buy some!")
   end
 end
   
@@ -76,10 +76,14 @@ end
 
 
 if input=="buy_food" then
+if money>=10 then
 food=food+1
-money=money-5
+money=money-10
 print("Food Owned =",(food))
 print("Money =",(money))
+    else
+      print("Not Enough Money!")
+    end
 end
 
 --car stuff
