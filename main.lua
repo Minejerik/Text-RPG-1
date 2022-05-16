@@ -1,3 +1,4 @@
+--variable stuff
 local input
 local money=100
 local health=150
@@ -11,7 +12,7 @@ local motorcycle=false
 local clothes=false
 local house=false
 local version = "beta 1.4"
-local energy = 5
+local energy = 10
 local chance
 local promotion = 1
 io.write("Time to play!\n")
@@ -19,7 +20,7 @@ io.write("What is your name?\n")
 name = io.read() 
 print("Hello",(name),"!")
 
-function main_loop()
+local function main_loop()
 io.write("What would you like to do?\n")
 input = io.read()
 
@@ -122,14 +123,14 @@ end
   
 --motorcycle stuff
 if input=="buy_motorcycle" then
-  if money>=250 and motorcycle==false then
+  if money>=200 and motorcycle==false then
 	motorcycle=true
-  money=money-250
-  drip=drip+250
+  money=money-200
+  drip=drip+200
   print("Motorcycle Now Owned")
         else
-        if money<250 then
-	      print( 250-money,"More Money Required!")
+        if money<200 then
+	      print( 200-money,"More Money Required!")
         end
         if motorcycle==true then
 	      print("You already own a motorcycle!")
@@ -139,14 +140,14 @@ end
   
 --clothes stuff
 if input=="buy_clothes" then
-  if money>=100 and clothes==false then
+  if money>=50 and clothes==false then
 	clothes=true
-  money=money-100
-  drip=drip+100
+  money=money-50
+  drip=drip+50
   print("Clothes Now Owned")
         else
-        if money<100 then
-	      print( 100-money,"More Money Required!")
+        if money<50 then
+	      print( 50-money,"More Money Required!")
         end
         if clothes==true then
 	      print("You already own Clothes!")
@@ -156,21 +157,20 @@ end
   
 --house stuff
 if input=="buy_house" then
-  if money>=400 and house==false then
+  if money>=500 and house==false then
 	house=true
-  money=money-400
-  drip=drip+400
+  money=money-500
+  drip=drip+500
   print("House Now Owned")
         else
-        if money<400 then
-	      print( 400-money,"More Money Required!")
+        if money<500 then
+	      print( 500-money,"More Money Required!")
         end
         if house==true then
 	      print("You already own a house!")
         end
 end
 end
-
 
 if input=="help" then
 print("info - Gets your stats")
@@ -181,27 +181,23 @@ print("eat - eat the food")
 print("fight - fight someone")
 print("train - train to earn more money per fight")
 print("buy_car - you buy a car $250")
-print("buy_motorcycle - you buy a motorcycle $250")
-print("buy_clothes - you buy some clothes $100")
-print("buy_house -  you buy a house $400")
+print("buy_motorcycle - you buy a motorcycle $200")
+print("buy_clothes - you buy some clothes $50")
+print("buy_house -  you buy a house $500")
 print("ask_for_promotion - ask for a promotion to earn more money")
 print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
 print("Version =",(version))
 end
 
-
 if drip >= 1000 then
 	print("You Win! You Became Drippy!")
   os.exit()
 end
-        
+
 if health <= 0 then
 	print("You Died! You Lost All Your Health!")
   os.exit()
 end
 main_loop()
 end
-
-
-main_loop()
 main_loop()
