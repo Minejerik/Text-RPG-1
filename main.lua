@@ -3,21 +3,21 @@ local money=100
 local health=150
 local loss
 local strength=25
-local food=10
+local food=5
 local name
 local drip=0
 local car=false
 local motorcycle=false
 local clothes=false
 local house=false
-local version = 1.0
-
+local version = 1.2
+local energy = 10
 
 
 io.write("Time to play!\n")
 io.write("What is your name?\n")
 name = io.read() 
-print("Hello",name,"!")
+print("Hello",(name),"!")
 
 
 function main_loop()
@@ -25,19 +25,29 @@ io.write("What would you like to do?\n")
 input = io.read()
 
 if input == "work" then
+  if energy > 0 then
 	money=money+25
+  energy=energy-1
   print("Money =", (money))
+  print("Energy Left =", (energy))
+    else
+      print("Out Of Energy! Eat Some Food!")
+    end
 end
+  
 if input == "eat" then
   if food>0 then
   health=health+5
   food=food-1
+  energy=energy+5
   print("Health =",(health))
   print("Food Left =",(food))  
+  print("Energy =", (energy))
   else
   print("You are out of food buy some!")
   end
 end
+  
 if input=="fight" then
     loss=math.random(0,30)
     gain=math.random(1,strength/2)
@@ -48,12 +58,14 @@ if input=="fight" then
     print("Health=",(health))
     print("Money =",(money))
 end
+  
 if input=="info"then
 print("Health=",(health))
 print("Money =",(money))
 print("Strength =",(strength))
 print("Food Left =",(food))  
 print("Your Drippines =",(drip)) 
+print("Energy =", (energy))
 end
 
 if input== "train" then
@@ -86,6 +98,7 @@ if input=="buy_car" then
         end
 end
 end
+  
 --motorcycle stuff
 if input=="buy_motorcycle" then
   if money>=250 and motorcycle==false then
@@ -102,6 +115,7 @@ if input=="buy_motorcycle" then
         end
 end
 end
+  
 --clothes stuff
 if input=="buy_clothes" then
   if money>=100 and clothes==false then
@@ -118,6 +132,7 @@ if input=="buy_clothes" then
         end
 end
 end
+  
 --house stuff
 if input=="buy_house" then
   if money>=400 and house==false then
@@ -180,10 +195,9 @@ if health <= 0 then
 	print("You Died! You Lost All Your Health!")
   os.exit()
 end
-
-
-
 main_loop()
 end
 
+
+main_loop()
 main_loop()
