@@ -198,14 +198,7 @@ print("buy_house -  you buy a house $400")
 print("ask_for_promotion - ask for a promotion to earn more money")
 print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
 print("Version =",(version))
-        
 end
-
-
-
-
-
-
 
 
 if drip >= 1000 then
