@@ -11,7 +11,7 @@ local car=false
 local motorcycle=false
 local clothes=false
 local house=false
-local version = "beta 1.4"
+local version = "beta 1.5"
 local energy = 10
 local chance
 local promotion = 1
