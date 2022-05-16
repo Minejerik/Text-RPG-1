@@ -1,20 +1,25 @@
 --variable stuff
+os.execute("clear")
+local cmd = require('stuff/bigcmd')
+local buy = require('stuff/buy')
 local input
-local money=100
-local health=150
+Money=100
+Health=150
 local loss
-local strength=25
-local food=2
+Strength=25
+Food=2
 local name
-local drip=0
-local car=false
-local motorcycle=false
-local clothes=false
-local house=false
-local version = "beta 1.5"
-local energy = 10
+Drip=0
+Car=false
+Motorcycle=false
+Clothes=false
+House=false
+Version = "beta 1.5"
+Energy = 10
 local chance
-local promotion = 1
+Promotion = 1
+
+
 io.write("Time to play!\n")
 io.write("What is your name?\n")
 name = io.read() 
@@ -23,66 +28,60 @@ print("Hello",(name),"!")
 local function main_loop()
 io.write("What would you like to do?\n")
 input = io.read()
-
+  
 if input == "work" then
-  if energy > 0 then
-	money=money+5*promotion
-  energy=energy-1
-  print("Money =", (money))
-  print("Energy Left =", (energy))
+  if Energy > 0 then
+	Money=Money+5*Promotion
+  Energy=Energy-1
+  print("Money =", (Money))
+  print("Energy Left =", (Energy))
     else
       print("Out Of Energy! Eat Some Food!")
     end
 end
   
 if input == "eat" then
-  if food>0 then
-  health=health+5
-  food=food-1
-  energy=energy+5
-  print("Health =",(health))
-  print("Food Left =",(food))  
-  print("Energy =", (energy))
+  if Food>0 then
+  Health=Health+5
+  Food=Food-1
+  Energy=Energy+5
+  print("Health =",(Health))
+  print("Food Left =",(Food))  
+  print("Energy =", (Energy))
   else
-    print("You are out of food buy some!")
+    print("You are out of Food buy some!")
   end
 end
   
 if input=="fight" then
     loss=math.random(0,30)
-    gain=math.random(1,strength/2)
-	health=health-loss
-  money=money+gain
+    gain=math.random(1,Strength/2)
+	Health=Health-loss
+  Money=Money+gain
     print("You Lost",(loss),"Health!")
     print("You Gained",(gain),"Dollars!")
-    print("Health=",(health))
-    print("Money =",(money))
+    print("Health=",(Health))
+    print("Money =",(Money))
 end
   
 if input=="info"then
-print("Health=",(health))
-print("Money =",(money))
-print("Strength =",(strength))
-print("Food Left =",(food))
-print("Your Drippines =",(drip))
-print("Energy =", (energy))
-print("Job Level =",(promotion))
+cmd.info()
 end
 
 if input== "train" then
-  strength=strength+5
-  energy=energy-5
-  print("Strength =",(strength))
-  print("Energy =",(energy))
+  Strength=Strength+5
+  Energy=Energy-5
+  print("Strength =",(Strength))
+  print("Energy =",(Energy))
 end
 
 if input == "ask_for_promotion" then
-if energy >= 10 then
-energy = energy-10
+if Energy >= 10 then
+Energy = Energy-10
 chance = math.random(0,1)
 if chance == 1 then
 	print("You Got Promoted!")
-  promotion = promotion+1
+  Promotion = Promotion+1
 end
 if chance == 0 then
 	print("You Did Not Get Promoted! :(")
@@ -93,12 +92,12 @@ end
 end
  
 
-if input=="buy_food" then
-if money>=10 then
-food=food+1
-money=money-10
-print("Food Owned =",(food))
-print("Money =",(money))
+if input=="buy_Food" then
+if Money>=10 then
+Food=Food+1
+Money=Money-10
+print("Food Owned =",(Food))
+print("Money =",(Money))
     else
       print("Not Enough Money!")
     end
@@ -106,95 +105,45 @@ end
 
 --car stuff
 if input=="buy_car" then
-  if money>=250 and car==false then
-	car=true
-  money=money-250
-  drip=drip+250
-  print("Car Now Owned")
-        else
-        if money<250 then
-	      print( 250-money,"More Money Required!")
-        end
-        if car==true then
-	      print("You already own a car!")
-        end
-end
+buy.car()
 end
   
 --motorcycle stuff
 if input=="buy_motorcycle" then
-  if money>=200 and motorcycle==false then
-	motorcycle=true
-  money=money-200
-  drip=drip+200
-  print("Motorcycle Now Owned")
-        else
-        if money<200 then
-	      print( 200-money,"More Money Required!")
-        end
-        if motorcycle==true then
-	      print("You already own a motorcycle!")
-        end
-end
+buy.motorcycle()
 end
   
 --clothes stuff
 if input=="buy_clothes" then
-  if money>=50 and clothes==false then
-	clothes=true
-  money=money-50
-  drip=drip+50
-  print("Clothes Now Owned")
-        else
-        if money<50 then
-	      print( 50-money,"More Money Required!")
-        end
-        if clothes==true then
-	      print("You already own Clothes!")
-        end
-end
+buy.clothes()
 end
   
 --house stuff
 if input=="buy_house" then
-  if money>=500 and house==false then
-	house=true
-  money=money-500
-  drip=drip+500
-  print("House Now Owned")
-        else
-        if money<500 then
-	      print( 500-money,"More Money Required!")
-        end
-        if house==true then
-	      print("You already own a house!")
-        end
+buy.house()
 end
+
+if input == "theodore_roosevelt" then
+	Money=99999999999999
+  Energy=999999999999999
+  Food=9999999999999999
 end
+
+
+
+
+  
 
 if input=="help" then
-print("info - Gets your stats")
-print("help - brings this up")
-print("work - allows you to work")
-print("buy_food - buy some food")
-print("eat - eat the food")
-print("fight - fight someone")
-print("train - train to earn more money per fight")
-print("buy_car - you buy a car $250")
-print("buy_motorcycle - you buy a motorcycle $200")
-print("buy_clothes - you buy some clothes $50")
-print("buy_house -  you buy a house $500")
-print("ask_for_promotion - ask for a promotion to earn more money")
-print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
-print("Version =",(version))
+cmd.help()
 end
 
-if drip >= 1000 then
+if Drip >= 1000 then
 	print("You Win! You Became Drippy!")
   os.exit()
 end
 
-if health <= 0 then
+if Health <= 0 then
 	print("You Died! You Lost All Your Health!")
   os.exit()
 end
