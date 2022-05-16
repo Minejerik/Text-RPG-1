@@ -172,17 +172,6 @@ end
 end
 
 
-
-
-
-
-
-
-
-
-
-
-      
 if input=="help" then
 print("info - Gets your stats")
 print("help - brings this up")
