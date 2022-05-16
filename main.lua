@@ -10,23 +10,10 @@ local car=false
 local motorcycle=false
 local clothes=false
 local house=false
-local version = "beta 1.3"
+local version = "beta 1.4"
 local energy = 5
-Mytable = {}
 local chance
 local promotion = 1
-
-	Mytable[1] = 5
-  Mytable[2] = 10
-  Mytable[3] = 15
-  Mytable[4] = 20
-  Mytable[5] = 25
-  Mytable[6] = 30
-
-
-
-
-
 io.write("Time to play!\n")
 io.write("What is your name?\n")
 name = io.read() 
@@ -38,7 +25,7 @@ input = io.read()
 
 if input == "work" then
   if energy > 0 then
-	money=money+Mytable[promotion]
+	money=money+5*promotion
   energy=energy-1
   print("Money =", (money))
   print("Energy Left =", (energy))
@@ -75,18 +62,21 @@ if input=="info"then
 print("Health=",(health))
 print("Money =",(money))
 print("Strength =",(strength))
-print("Food Left =",(food))  
-print("Your Drippines =",(drip)) 
+print("Food Left =",(food))
+print("Your Drippines =",(drip))
 print("Energy =", (energy))
+print("Job Level =",(promotion))
 end
 
 if input== "train" then
   strength=strength+5
+  energy=energy-5
   print("Strength =",(strength))
+  print("Energy =",(energy))
 end
 
 if input == "ask_for_promotion" then
-if energy <= 10 then
+if energy >= 10 then
 energy = energy-10
 chance = math.random(0,1)
 if chance == 1 then
@@ -100,16 +90,7 @@ else
 print("More Energy Required!")
 end
 end
-
-
-
-
-
-
-
-
-
-  
+ 
 
 if input=="buy_food" then
 if money>=10 then
@@ -214,6 +195,7 @@ print("buy_car - you buy a car $250")
 print("buy_motorcycle - you buy a motorcycle $250")
 print("buy_clothes - you buy some clothes $100")
 print("buy_house -  you buy a house $400")
+print("ask_for_promotion - ask for a promotion to earn more money")
 print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
 print("Version =",(version))
         
