@@ -3,15 +3,15 @@ local money=100
 local health=150
 local loss
 local strength=25
-local food=5
+local food=2
 local name
 local drip=0
 local car=false
 local motorcycle=false
 local clothes=false
 local house=false
-local version = "beta 1.2"
-local energy = 10
+local version = "beta 1.3"
+local energy = 5
 
 
 io.write("Time to play!\n")
