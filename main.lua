@@ -3,8 +3,8 @@ os.execute("clear")
 local cmd = require('stuff/bigcmd')
 local buy = require('stuff/buy')
 local input
-Money=100
-Health=150
+Money=10
+Health=50
 local loss
 Strength=25
 Food=2
@@ -17,6 +17,7 @@ House=false
 Version = "beta 1.5"
 Energy = 10
 local chance
+local gain
 Promotion = 1
 
 io.write("Time to play!\n")
@@ -27,7 +28,7 @@ print("Hello",(name),"!")
 local function main_loop()
 io.write("What would you like to do?\n")
 input = io.read()
-  
+
 if input == "work" then
   if Energy > 0 then
 	Money=Money+5*Promotion
@@ -54,7 +55,7 @@ end
   
 if input=="fight" then
     loss=math.random(0,30)
-    gain=math.random(1,Strength/2)
+    gain=math.random(11.5,Strength/2)
 	Health=Health-loss
   Money=Money+gain
     print("You Lost",(loss),"Health!")
@@ -91,7 +92,7 @@ end
 end
  
 
-if input=="buy_Food" then
+if input=="buy_food" then
 if Money>=10 then
 Food=Food+1
 Money=Money-10
