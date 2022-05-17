@@ -1,7 +1,7 @@
 local buy = {}
 
 buy.car = function ()
-	  if Money>=250 and car==false then
+	  if Money>=250 and Car==false then
 	Car=true
   Money=Money-250
   Drip=Drip+250
@@ -17,7 +17,7 @@ end
 end
 
 buy.motorcycle = function ()
-	  if Money>=200 and motorcycle==false then
+	  if Money>=200 and Motorcycle==false then
 	Motorcycle=true
   Money=Money-200
   Drip=Drip+200
@@ -63,6 +63,19 @@ buy.house = function ()
         end
 end
 end
+
+buy.food = function()
+if Money>=10 then
+Food=Food+1
+Money=Money-10
+print("Food Owned =",(Food))
+print("Money =",(Money))
+    else
+      print("Not Enough Money!")
+    end
+end
+
+
 
 
 

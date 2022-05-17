@@ -1,29 +1,34 @@
 --variable stuff
 os.execute("clear")
-local cmd = require('stuff/bigcmd')
-local buy = require('stuff/buy')
+local cmd = require('more stuff/bigcmd')
+local buy = require('more stuff/buy')
+local sus = require('more stuff/cmd')
 local input
-Money=10
+Money=85
 Health=50
 local loss
 Strength=25
 Food=2
-local name
+Name = 0
 Drip=0
 Car=false
 Motorcycle=false
 Clothes=false
 House=false
-Version = "beta 1.5"
+Version = "beta 1.7"
 Energy = 10
 local chance
 local gain
 Promotion = 1
+Soft_Locked = 0
+
 
 io.write("Time to play!\n")
 io.write("What is your name?\n")
-name = io.read() 
-print("Hello",(name),"!")
+Name = io.read() 
+print("Hello",(Name),"!")
+
+sus.money()
 
 local function main_loop()
 io.write("What would you like to do?\n")
@@ -39,7 +44,7 @@ if input == "work" then
       print("Out Of Energy! Eat Some Food!")
     end
 end
-  
+
 if input == "eat" then
   if Food>0 then
   Health=Health+5
@@ -52,10 +57,10 @@ if input == "eat" then
     print("You are out of Food buy some!")
   end
 end
-  
+
 if input=="fight" then
-    loss=math.random(0,30)
-    gain=math.random(11.5,Strength/2)
+    loss=math.random(0,40)
+    gain=math.random(5,Strength/2)
 	Health=Health-loss
   Money=Money+gain
     print("You Lost",(loss),"Health!")
@@ -63,7 +68,7 @@ if input=="fight" then
     print("Health=",(Health))
     print("Money =",(Money))
 end
-  
+
 if input=="info"then
 cmd.info()
 end
@@ -90,43 +95,36 @@ else
 print("More Energy Required!")
 end
 end
- 
+
 
 if input=="buy_food" then
-if Money>=10 then
-Food=Food+1
-Money=Money-10
-print("Food Owned =",(Food))
-print("Money =",(Money))
-    else
-      print("Not Enough Money!")
-    end
+buy.food()
 end
 
 --car stuff
 if input=="buy_car" then
 buy.car()
 end
-  
+
 --motorcycle stuff
 if input=="buy_motorcycle" then
 buy.motorcycle()
 end
-  
+
 --clothes stuff
 if input=="buy_clothes" then
 buy.clothes()
 end
-  
+
 --house stuff
 if input=="buy_house" then
 buy.house()
 end
 
 if input == "theodore_roosevelt" then
-	Money=99999999999999
-  Energy=999999999999999
-  Food=9999999999999999
+	Money=9999
+  Energy=9999
+  Food=9999
     print("obansa")
 end
 
@@ -138,6 +136,12 @@ if Drip >= 1000 then
 	print("You Win! You Became Drippy!")
   os.exit()
 end
+if Money<10 and Food==0 and Energy==0 then
+print("You Got Soft Locked! You Have Been Saved!")
+Soft_Locked = 1
+Money = Money+20
+end
+
 
 if Health <= 0 then
 	print("You Died! You Lost All Your Health!")
