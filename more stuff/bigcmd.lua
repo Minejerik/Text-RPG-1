@@ -14,6 +14,7 @@ print("buy_motorcycle - you buy a motorcycle $200")
 print("buy_clothes - you buy some clothes $50")
 print("buy_house -  you buy a house $500")
 print("ask_for_promotion - ask for a promotion to earn more money")
+print("clear - clears console")
 print("buy motorcycle/car/clothes/a house lets you get drippy enough to win")
 print("Version =",(Version))
 end 

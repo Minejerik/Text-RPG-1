@@ -123,6 +123,11 @@ if input=="buy_clothes" then
 buy.clothes()
 end
 
+if input=="clear" then
+os.execute("clear")
+end
+
+
 --house stuff
 if input=="buy_house" then
 buy.house()
