@@ -65,14 +65,23 @@ end
 end
 
 buy.food = function()
-if Money>=10 then
-Food=Food+1
-Money=Money-10
+Ammount = 1
+io.write("Ammount?\n")
+Ammount = io.read()
+
+if Ammount == "all" then
+Ammount = Money/10
+end
+	
+if Money>=10*Ammount then
+Food=Food+1*Ammount
+Money=Money-10*Ammount
 print("Food Owned =",(Food))
 print("Money =",(Money))
     else
-      print("Not Enough Money!")
+      print(Ammount*10-Money,"More Dollars Required!")
     end
+Ammount=1
 end
 
 
