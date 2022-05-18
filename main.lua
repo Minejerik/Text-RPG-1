@@ -2,7 +2,8 @@
 os.execute("clear")
 local cmd = require('more stuff/bigcmd')
 local buy = require('more stuff/buy')
-local input
+local intro = require('more stuff/intro')
+local input = 0
 Money=10
 Health=25
 local loss
@@ -20,15 +21,11 @@ Chance = 1
 local gain
 Promotion = 1
 Soft_Locked = 0
+Intro_Complete = 0
 Ammount = 1
 
 
-io.write("Time To Play!\n")
-io.write("Text RPG 2!\n")
-io.write("The Quest To Become Drippy!\n")
-io.write("What is your name?\n")
-Name = io.read() 
-print("Hello",(Name),"!")
+intro.start()
 
 
 local function main_loop()
@@ -127,6 +124,10 @@ if input=="clear" then
 os.execute("clear")
 end
 
+if input =="buy_beans" then
+buy.beans()
+end
+
 
 --house stuff
 if input=="buy_house" then
@@ -161,7 +162,7 @@ Money = Money+20
 end
 
 if input == "nill" then
-	print("AHHHFHFAHHFHAHFHASUFHIOAHSFIUHAIUSFH \n ERROROROOROROOROROROOROROROOROROR \n I AM KAPUT")
+	print("AHHHFHFAHHFHAHFHASUFHIOAHSFIUHAIUSFH\n  ERROROROOROROOROROROOROROROOROROR\n  I AM KAPUT")
 end
 
 	

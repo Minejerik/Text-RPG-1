@@ -84,6 +84,19 @@ print("Money =",(Money))
 Ammount=1
 end
 
+buy.beans = function()
+if Money>=8000 then
+Food=Food+10
+Money=Money-8000
+print("Food Owned =",(Food))
+print("Money =",(Money))
+    else
+      print(8000-Money,"More Dollars Required!")
+    end
+end
+
+
+
 
 
 
