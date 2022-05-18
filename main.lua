@@ -146,6 +146,9 @@ cmd.help()
 end
 
 if Drip >= 1000 then
+if Soft_Locked == 1 then
+	print("YOU GOT SOFT LOCKED!!!!!")
+end
 	print("You Win! You Became Drippy!")
   os.exit()
 end
