@@ -4,6 +4,10 @@ local cmd = require('more stuff/bigcmd')
 local buy = require('more stuff/buy')
 local intro = require('more stuff/intro')
 local input = 0
+local diftable = {}
+diftable[1] = "Normal Difficulty"
+diftable[2] = "Hard Difficulty"
+diftable[3] = "Extreme Difficulty"
 Money=10
 Health=25
 local loss
@@ -15,7 +19,8 @@ Car=false
 Motorcycle=false
 Clothes=false
 House=false
-Version = "beta 1.8"
+Difficulty = 1
+Version = "beta 1.9"
 Energy = 10
 Chance = 1
 local gain
@@ -26,7 +31,8 @@ Ammount = 1
 
 
 intro.start()
-
+io.write("[1] - Normal Difficulty\n[2] - Hard Difficulty\n[3] - EXTREME DIFFICULTY\n")
+Difficulty = io.read()
 
 local function main_loop()
 io.write("\nWhat would you like to do?\n")
@@ -34,8 +40,8 @@ input = io.read()
 
 if input == "work" then
   if Energy > 0 then
-	Money=Money+5*Promotion
-  Energy=Energy-1
+	Money=Money+5*Promotion/Difficulty
+  Energy=Energy-1*Difficulty
   print("Money =", (Money))
   print("Energy Left =", (Energy))
     else
@@ -48,9 +54,9 @@ Ammount = 1
 io.write("Ammount?\n")
 Ammount = io.read()
   if Ammount*Food>=0 then
-  Health=Health+5*Ammount
-  Food=Food-1*Ammount
-  Energy=Energy+5*Ammount
+  Health=Health+5*Ammount/Difficulty
+  Food=Food-1*Ammount*Difficulty
+  Energy=Energy+5*Ammount/Difficulty
   print("Health =",(Health))
   print("Food Left =",(Food))  
   print("Energy =", (Energy))
@@ -62,8 +68,8 @@ end
 
 if input=="fight" then
 
-    loss=math.random(0,40)
-    gain=math.random(5,Strength/2)
+    loss=math.random(0,40)*Difficulty
+    gain=math.random(5,Strength/2)/Difficulty
 	Health=Health-loss
   Money=Money+gain
     print("You Lost",(loss),"Health!")
@@ -78,15 +84,15 @@ end
 
 if input== "train" then
 
-  Strength=Strength+5
-  Energy=Energy-5
+  Strength=Strength+5/Difficulty
+  Energy=Energy-5*Difficulty
   print("Strength =",(Strength))
   print("Energy =",(Energy))
 end
 
 if input == "ask_for_promotion" then
-if Energy >= 10 then
-Energy = Energy-10
+if Energy >= 10*Difficulty then
+Energy = Energy-10*Difficulty
 Chance = math.random(0,1)
 if Chance == 1 then
 	print("You Got Promoted!")
@@ -96,7 +102,7 @@ if Chance == 0 then
 	print("You Did Not Get Promoted! :(")
 end
 else
-print(10-Energy,"More Energy Required!")
+print(10-Energy*Difficulty,"More Energy Required!")
 end
 end
 
@@ -146,11 +152,12 @@ if input=="help" then
 cmd.help()
 end
 
-if Drip >= 1000 then
+if Drip >= 1000*Difficulty then
 if Soft_Locked == 1 then
 	print("YOU GOT SOFT LOCKED!!!!!")
 end
 	print("You Win! You Became Drippy!")
+	print("You Beat the",diftable[Difficulty])
   os.exit()
 end
 
@@ -158,7 +165,7 @@ end
 if Money<10 and Food==0 and Energy==0 then
 print("You Got Soft Locked! You Have Been Saved!")
 Soft_Locked = 1
-Money = Money+20
+Money = Money+20/Difficulty
 end
 
 if input == "nill" then
