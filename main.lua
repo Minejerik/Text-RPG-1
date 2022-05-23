@@ -20,7 +20,7 @@ Motorcycle=false
 Clothes=false
 House=false
 Difficulty = 1
-Version = "beta 1.9"
+Version = "beta 2.0"
 Energy = 10
 Chance = 1
 local gain
