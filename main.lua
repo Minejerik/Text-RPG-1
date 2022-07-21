@@ -8,6 +8,7 @@ Diftable = {}
 Diftable[1] = "Normal Difficulty"
 Diftable[2] = "Hard Difficulty"
 Diftable[3] = "Extreme Difficulty"
+Diftable[4] = "Insane Difficulty"
 Money=10
 Health=25
 Loss=0
@@ -31,7 +32,7 @@ Ammount = 1
 
 
 intro.start()
-io.write("[1] - Normal Difficulty\n[2] - Hard Difficulty\n[3] - EXTREME DIFFICULTY\n")
+io.write("[1] - Normal Difficulty\n[2] - Hard Difficulty\n[3] - EXTREME DIFFICULTY\n[4] - INSANE DIFFICULTY\n")
 Difficulty = io.read()
 local function main_loop()
 io.write("\nWhat would you like to do?\n")
