@@ -66,6 +66,7 @@ Ammount = io.read()
 Ammount = 1
 end
 
+
 if Input=="fight" then
     Loss=math.random(0,40)*Difficulty
     gain=math.random(5,Strength/2)/Difficulty
