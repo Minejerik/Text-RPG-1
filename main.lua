@@ -1,8 +1,8 @@
 --variable stuff
-os.execute("clear")
-local cmd = require('more stuff/bigcmd')
-local buy = require('more stuff/buy')
-local intro = require('more stuff/intro')
+
+local cmd = require('morestuff/bigcmd')
+local buy = require('morestuff/buy')
+local intro = require('more tuff/intro')
 Input = 0
 Diftable = {}
 Diftable[1] = "Normal Difficulty"
@@ -33,7 +33,7 @@ Ammount = 1
 
 intro.start()
 io.write("[1] - Normal Difficulty\n[2] - Hard Difficulty\n[3] - EXTREME DIFFICULTY\n[4] - INSANE DIFFICULTY\n")
-Difficulty = io.read()
+Difficulty = tonumber(io.read())
 local function main_loop()
 io.write("\nWhat would you like to do?\n")
 Input = io.read()
