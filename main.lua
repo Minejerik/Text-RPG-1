@@ -2,7 +2,7 @@
 
 local cmd = require('morestuff/bigcmd')
 local buy = require('morestuff/buy')
-local intro = require('more tuff/intro')
+local intro = require('morestuff/intro')
 Input = 0
 Diftable = {}
 Diftable[1] = "Normal Difficulty"
@@ -14,7 +14,6 @@ Health=25
 Loss=0
 Strength=15
 Food=1
-Name = 0
 Drip=0
 Car=false
 Motorcycle=false
@@ -51,9 +50,10 @@ end
 
 if Input == "eat" then
 Ammount = 1
+print('You Have '..Food..' Food Left')
 io.write("Ammount?\n")
 Ammount = io.read()
-  if Ammount*Food>=0 then
+  if Food-Ammount>=0 then
   Health=Health+5*Ammount/Difficulty
   Food=Food-1*Ammount*Difficulty
   Energy=Energy+5*Ammount/Difficulty
@@ -142,6 +142,7 @@ if Input == "theodore_roosevelt" then
 	Money=9999
   Energy=9999
   Food=9999
+	Drip=9999
   print("obansa")
 end
 
@@ -154,7 +155,11 @@ if Soft_Locked == 1 then
 	print("YOU GOT SOFT LOCKED!!!!!")
 end
 	print("You Win! You Became Drippy!")
-	print("You Beat the",(Diftable[Difficulty]))
+	if Difficulty > 4 then
+	print("You Beat the Hardest Difficulty there is!")
+	else
+	print("You Beat the "..(Diftable[Difficulty]))
+	end
   os.exit()
 end
 
@@ -162,10 +167,6 @@ if Money<10 and Food==0 and Energy==0 then
 print("You Got Soft Locked! You Have Been Saved!")
 Soft_Locked = 1
 Money = Money+20/Difficulty
-end
-
-if Input == "nill" then
-	print("AHHHFHFAHHFHAHFHASUFHIOAHSFIUHAIUSFH\n  ERROROROOROROOROROROOROROROOROROR\n  I AM KAPUT")
 end
 
 if Health <= 0 then
