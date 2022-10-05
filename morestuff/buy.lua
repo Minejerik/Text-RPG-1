@@ -68,11 +68,9 @@ buy.food = function()
 Ammount = 1
 io.write("Ammount?\n")
 Ammount = io.read()
-
 if Ammount == "all" then
 Ammount = Money/10*Difficulty
 end
-	
 if Money>=10*Ammount*Difficulty then
 Food=Food+1*Ammount/Difficulty
 Money=Money-10*Ammount*Difficulty

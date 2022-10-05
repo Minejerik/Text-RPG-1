@@ -24,7 +24,7 @@ Version = "beta 2.0"
 Energy = 10
 Chance = 1
 local gain
-Promotion = 1
+Promotion = 100
 Soft_Locked = 0
 Intro_Complete = 0
 Ammount = 1
